@@ -8,6 +8,7 @@ class Score:
     def get_results(self):
         result = self._load_results()
         print("Результаты игр:")
+        print("-" * 30)
         for game in result:
             print(f"Дата: {game['date']},\nИмя игрока: {game['name']},\nОчки: {game['score']},\nКоличество раундов: {game['level']}")
             print("-" * 30)
@@ -16,7 +17,7 @@ class Score:
         try:
             with open(FILE_NAME, "r", encoding="utf-8") as file:
                 return json.load(file)
-        except FileNotFoundError:
+        except (FileNotFoundError, json.JSONDecodeError):
             return []
 
     def save_result(self, player, level):

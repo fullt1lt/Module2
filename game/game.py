@@ -23,10 +23,11 @@ class Game:
         self.level_name = GAME_LEVELS_CONVERT[self.level]
 
     def print_results(self, current_round, step_player, step_computer):
+        print("-" * 30)
         print(f"Раунд {current_round} из {self.level}")
         print(f"{self.player.name} бросил: {step_player}\n{self.computer.name} бросил: {step_computer}")
         print(f"Разница: {step_player - step_computer} очка")
-        print("-----------------------")
+        print("-" * 30)
 
     def check_winner(self, current_round, step_player, step_computer):
         diff = step_player - step_computer
